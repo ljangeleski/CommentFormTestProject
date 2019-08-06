@@ -41,7 +41,7 @@ namespace CommentFormTestProject
             string newCaptchaText = commentForm.TxtCaptcha.Text;
             Console.WriteLine("New captcha: " + newCaptchaText);
 
-            Assert.AreNotEqual(captchaText, newCaptchaText);
+            Assert.AreNotEqual(captchaText, newCaptchaText, "Expected that new captcha " + newCaptchaText + " is not equal to old captcha " + captchaText + " but it is.");
         }
 
         [Test]
@@ -59,7 +59,7 @@ namespace CommentFormTestProject
             new WebDriverWait(driver, TimeSpan.FromSeconds(5)).Until(driver => commentForm.MsgSuccess);
             Console.WriteLine("Message shown: " + commentForm.MsgSuccess.Text);
             
-            Assert.AreEqual(commentForm.MsgSuccess.Text, "Success");
+            Assert.AreEqual(commentForm.MsgSuccess.Text, "Success", "Message 'Success' is not shown on the page.");
         }
 
         [TearDown]
